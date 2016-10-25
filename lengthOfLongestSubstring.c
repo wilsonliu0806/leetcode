@@ -63,7 +63,7 @@ int lengthOfLongestSubstring(char* s) {
 }
 int main()
 {
-    char *p = "abcabcbb";
+    char *p = "abcabc";
     int i = lengthOfLongestSubstring(p);
     return 0;
 
