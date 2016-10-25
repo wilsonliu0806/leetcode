@@ -19,7 +19,7 @@ int lengthOfLongestSubstring(char* s) {
     int end[MAX_STRING];
     int start[MAX_STRING];
     int repeat[MAX_STRING];
-    while(true){
+    while(1){
         if(i == 1){
             start[i]=1;
             end[i]=1;
@@ -38,7 +38,7 @@ int lengthOfLongestSubstring(char* s) {
             end[i]=end[i-1];
             continue;
         }
-        if(!repeat[i]=sub_len_has(s,startpos,endpos,s+i)){
+        if(repeat[i]=sub_len_has(s,startpos,endpos,*(s+i)) == 0){
             start[i]=startpos;
             end[i]=i;
         }else{
@@ -48,7 +48,9 @@ int lengthOfLongestSubstring(char* s) {
         i++;
     }
 }
-void main()
+int main()
 {
     printf("Hello!\n");
+    return 0;
+
 }
