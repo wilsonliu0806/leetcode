@@ -44,7 +44,7 @@ int lengthOfLongestSubstring(char* s) {
         if(repeatpos==-1){
             repeat[i] = repeat[i-1];
         }else{
-            repeat[i] = repeat[i-1]+1;
+            repeat[i] = repeatpos+1;
         }
 
         if(i-repeat[i]+1>= end[i-1]-start[i-1]+1){
@@ -61,7 +61,7 @@ int lengthOfLongestSubstring(char* s) {
 }
 int main()
 {
-    char *p = "aab";
+    char *p = "abba";
     int i = lengthOfLongestSubstring(p);
     return 0;
 
