@@ -1,4 +1,5 @@
 #include"stdio.h"
+#include "string.h"
 #define MAX_STRING 256
 int sub_len_has(char * s,int start,int end,char ch){
     char *p = s+start;
@@ -65,18 +66,19 @@ int lengthOfLongestSubstring(char* s) {
 }
 
 int lengthOfLongestSubstring1(char* s) {
-    char m[256]={-1};
+    char m[256];
+    memset(m,-1,256);
     char ch = *s;
     int len = 0;
     int i=0;
     int start=0;
     while(ch!='\0'){
         if(m[ch] == -1){
-            len = i-start;
+            len = i-start+1;
         }
         if(m[ch]!=-1 && i-m[ch]>=len){
-            s=i-len+1;
-            len = i-start;
+            start=i-len+1;
+            len = i-start+1;
         }
         m[ch]=i;
         i++;
@@ -89,10 +91,13 @@ int main()
     char *p = "abba";
     int result;
     result = lengthOfLongestSubstring1(p);
-    printf("%s %d",p,result);
+    printf("%s %d\n",p,result);
     p = "aab";
     result = lengthOfLongestSubstring1(p);
-    printf("%s %d",p,result);
+    printf("%s %d\n",p,result);
+    p = "abcabcbb";
+    result = lengthOfLongestSubstring1(p);
+    printf("%s %d\n",p,result);
     return 0;
 
 }
