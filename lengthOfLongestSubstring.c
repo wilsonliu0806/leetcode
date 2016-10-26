@@ -71,14 +71,13 @@ int lengthOfLongestSubstring1(char* s) {
     char ch = *s;
     int len = 0;
     int i=0;
-    int start=0;
+    int repeatpos=-1;
     while(ch!='\0'){
-        if(m[ch] == -1){
-            len = i-start+1;
+        if(m[ch]!=-1&&i-repeatpos>len){
+            repeatpos=m[ch];
         }
-        if(m[ch]!=-1 && i-m[ch]>=len){
-            start=i-len+1;
-            len = i-start+1;
+        if(i-repeatpos >len){
+            len=i-repeatpos;
         }
         m[ch]=i;
         i++;
