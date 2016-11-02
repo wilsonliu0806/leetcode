@@ -65,7 +65,7 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
                     return (*(pnums+pos-1) + *(pnums+pos))/2.0;
                 }
             }else{
-                return (*pnums+pos)/1.0;
+                return *(pnums+pos)/1.0;
             }
         }else{
             totaldel -=delcnt;
@@ -91,8 +91,8 @@ int main(){
     int nums8[] = {2,3};
     result = findMedianSortedArrays(nums7,sizeof(nums7)/sizeof(int),nums8,sizeof(nums8)/sizeof(int));
     printf("findMedianSortedArrays %.2f\n",result);
-    int nums9[] = {2,2,2};
-    int nums10[] = {2,2,2,2};
+    int nums9[] = {2,2,2,2};
+    int nums10[] = {2,2,2};
     result = findMedianSortedArrays(nums9,sizeof(nums9)/sizeof(int),nums10,sizeof(nums10)/sizeof(int));
     printf("findMedianSortedArrays %.2f\n",result);
 }
